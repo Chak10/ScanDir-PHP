@@ -88,7 +88,7 @@ $file = $res->res;
 **Case 1**
 
 ```php
-$res = new dir_scan('folder','ico',true);
+$res = new dir_scan('folder',null,true);
 
 $file = $res->res;
 
@@ -125,7 +125,7 @@ $file = $res->res;
 **Case 2**
 
 ```php
-$res = new dir_scan('folder','ico',false);
+$res = new dir_scan('folder',null,false);
 
 $file = $res->res;
 
