@@ -32,39 +32,42 @@ $file = $res->res;
 $res = new dir_scan('css');
 ```
 
-```json
-{
-    "dirpr": [
-        "css"
-    ],
-    "ext": [],
-    "res": [
-        "css\\bootstrap\\bootstrap-datetimepicker-standalone.css",
-        "css\\bootstrap\\bootstrap-datetimepicker.css",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.eot",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.svg",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.ttf",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.woff",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.woff2",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.eot",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.svg",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.ttf",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.woff",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.woff2",
-        "css\\bootstrap\\bootstrap-datetimepicker-standalone.css",
-        "css\\bootstrap\\bootstrap-datetimepicker.css",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.eot",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.svg",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.ttf",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.woff",
-        "css\\bootstrap\\fonts\\glyphicons-halflings-regular.woff2",
-        "css\\sprite-white.css",
-        "css\\sprite.css",
-        "css\\table.css"
-    ],
-    "err": [],
-    "rec": true
-}
+```text
+object(dir_scan)[1]
+  public 'dirpr' => 
+    array (size=1)
+      0 => string 'css' (length=3)
+  public 'ext' => 
+    array (size=0)
+      empty
+  public 'res' => 
+    array (size=22)
+      0 => string 'css\bootstrap\bootstrap-datetimepicker-standalone.css' (length=53)
+      1 => string 'css\bootstrap\bootstrap-datetimepicker.css' (length=42)
+      2 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.eot' (length=52)
+      3 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.svg' (length=52)
+      4 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.ttf' (length=52)
+      5 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.woff' (length=53)
+      6 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.woff2' (length=54)
+      7 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.eot' (length=52)
+      8 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.svg' (length=52)
+      9 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.ttf' (length=52)
+      10 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.woff' (length=53)
+      11 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.woff2' (length=54)
+      12 => string 'css\bootstrap\bootstrap-datetimepicker-standalone.css' (length=53)
+      13 => string 'css\bootstrap\bootstrap-datetimepicker.css' (length=42)
+      14 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.eot' (length=52)
+      15 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.svg' (length=52)
+      16 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.ttf' (length=52)
+      17 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.woff' (length=53)
+      18 => string 'css\bootstrap\fonts\glyphicons-halflings-regular.woff2' (length=54)
+      19 => string 'css\sprite-white.css' (length=20)
+      20 => string 'css\sprite.css' (length=14)
+      21 => string 'css\table.css' (length=13)
+  public 'err' => 
+    array (size=0)
+      empty
+  public 'rec' => boolean true
 ```
 
 ### **Advanced (Search only files with a certain extension)**
