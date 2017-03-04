@@ -88,7 +88,7 @@ $file = $res->res;
 **Case 1**
 
 ```php
-$res = new dir_scan('folder',null,true);
+$res = new dir_scan('folder');
 
 $file = $res->res;
 
