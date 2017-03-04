@@ -2,6 +2,10 @@
 
 ## USE
 
+```php
+function __construct($dir = null, $ext = null, $rec = true) {}
+```
+
 ### **Simple Use**
 
 ```php
