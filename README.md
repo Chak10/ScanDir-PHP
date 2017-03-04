@@ -2,7 +2,7 @@
 
 ## USE
 
-1. Simple
+**__1. Simple__**
 
 ```php
 $res = new dir_scan('folder');
@@ -63,7 +63,7 @@ $res = new dir_scan('css');
 }
 ```
 
-2. Advanced (Search only files with a certain extension)
+**__2. Advanced (Search only files with a certain extension)__**
 
 ```php
 $res = new dir_scan('folder','ico');
@@ -83,7 +83,7 @@ $res = new dir_scan('folder',array('ico','php'));
 $file = $res->res;
 
 ```
-2.1 Advanced (Recursive)
+**__2.1 Advanced (Recursive)__**
 
 **Case 1**
 
