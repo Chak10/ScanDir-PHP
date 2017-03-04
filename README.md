@@ -13,7 +13,7 @@ $res = new dir_scan('folder');
 
 $file = $res->res;
 
-*/ OR /*
+/* OR */
 
 $file = (new dir_scan('folder'))->res;
 
