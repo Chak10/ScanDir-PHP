@@ -13,6 +13,10 @@ $res = new dir_scan('folder');
 
 $file = $res->res;
 
+*/ OR /*
+
+$file = (new dir_scan('folder'))->res;
+
 ```
 ```php
 $res = new dir_scan('folder,folder2');
