@@ -40,7 +40,6 @@ class dir_scan {
     private function search($dir, $dir_sep, $rec) {
         if ($this->res === false)
             return false;
-        $res = array();
         $dir = realpath($dir);
         if ($rec) {
             if (is_dir($dir) === true) {
