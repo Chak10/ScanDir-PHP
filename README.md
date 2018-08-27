@@ -18,18 +18,8 @@ $file = $res->res;
 $file = (new dir_scan('folder'))->res;
 
 ```
-```php
-$res = new dir_scan('folder,folder2');
 
-$file = $res->res;
 
-```
-```php
-$res = new dir_scan(array('folder','folder2'));
-
-$file = $res->res;
-
-```
 **Output class**
 
 ```php
@@ -39,8 +29,7 @@ $res = new dir_scan('css');
 ```text
 object(dir_scan)[1]
   public 'dirpr' => 
-    array (size=1)
-      0 => string 'css' (length=3)
+    string 'css' (length=3)
   public 'ext' => 
     array (size=0)
       empty
@@ -68,10 +57,6 @@ object(dir_scan)[1]
       19 => string 'css\sprite-white.css' (length=20)
       20 => string 'css\sprite.css' (length=14)
       21 => string 'css\table.css' (length=13)
-  public 'err' => 
-    array (size=0)
-      empty
-  public 'rec' => boolean true
 ```
 
 ### **Advanced (Search only files with a certain extension)**
