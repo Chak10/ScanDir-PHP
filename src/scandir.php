@@ -3,7 +3,7 @@
 class dir_scan
 {
 
-    var $dir = array();
+    var $dir;
     var $ext = array();
     var $res = array();
 
@@ -11,7 +11,7 @@ class dir_scan
     {
         if (!is_string($dir))
             return false;
-        $this->dir[] = $dir;
+        $this->dir = $dir;
         if (is_string($exts))
             $exts = explode(',', $exts);
         $this->ext = $exts = array_map('strtolower', $exts);
