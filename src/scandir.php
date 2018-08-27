@@ -15,18 +15,13 @@ class dir_scan
         if (is_string($exts))
             $exts = explode(',', $exts);
         $this->ext = $exts = array_map('strtolower', $exts);
-
-        if (empty($exts)) {
-            if (!$rec) return $this->res = self::glob_standard($dir);
-            return $this->res = self::glob_recursive($dir);
-        }
         if ($rec) return $this->res = self::glob_recursive($dir, $exts);
         return $this->res = self::glob_standard($dir, $exts);
     }
 
-    static private function glob_standard($dirs, $exts = false)
+    static private function glob_standard($dirs, $exts)
     {
-        if ($exts) {
+        if (!empty($exts)) {
             $e = $dirs . "/*.{";
             foreach ($exts as $k => $ext) {
                 $e .= strtolower($ext) . "," . strtoupper($ext);
@@ -39,7 +34,7 @@ class dir_scan
         return glob($dirs . "/*");
     }
 
-    static private function glob_recursive($dirs, $exts = false)
+    static private function glob_recursive($dirs, $exts)
     {
         $files = self::glob_standard($dirs, $exts);
         foreach (glob($dirs . "/*", GLOB_ONLYDIR) as $dir)
