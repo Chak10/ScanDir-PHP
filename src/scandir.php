@@ -37,9 +37,6 @@ class dir_scan
             return glob($e, GLOB_BRACE);
         }
         return glob($dirs . "/*");
-
-
-        return $files;
     }
 
     static private function glob_recursive($dirs, $exts = false)
