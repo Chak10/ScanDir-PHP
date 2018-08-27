@@ -1,69 +1,52 @@
 <?php
 
-class dir_scan {
-    
-    var $dirpr = array();
+class dir_scan
+{
+
+    var $dir = array();
     var $ext = array();
     var $res = array();
-    var $err = array();
-    var $rec;
-    
-    function __construct($dir = null, $ext = null, $rec = true) {
-        if (is_string($dir)) {
-            $dir = explode(',', $dir);
-        }
-        if (is_array($dir)) {
-            foreach ($dir as $d) {
-                if (is_dir($d)) {
-                    $this->dirpr[] = $d;
-                } else {
-                    $this->err[] = "($d) not is a dir";
-                }
-            }
-        }
-        empty($this->dirpr) ? $this->res = false : '';
-        if (is_array($ext)) {
-            $ext = array_map('strtolower', $ext);
-            $this->ext = $ext;
-        } elseif (is_string($ext)) {
-            $ext = explode(',', $ext);
-            $ext = array_map('strtolower', $ext);
-            $this->ext = $ext;
-        }
-        $this->rec = $rec;
-        foreach ($this->dirpr as $dr) {
-           $this->search($dr);
-        }
-        
-    }
-    
-    private function search($dir) {
-        if ($this->res === false)
+
+    function __construct($dir, $exts = array(), $rec = true)
+    {
+        if (!is_string($dir))
             return false;
-        $res = array();
-        $root = scandir($dir);
-        foreach ($root as $v) {
-            if ($v === '.' || $v === '..')
-                continue;
-            if (is_file($dir . DIRECTORY_SEPARATOR . $v)) {
-                if (is_array($this->ext) && !empty($this->ext)) {
-                    foreach ($this->ext as $ext) {
-                        $extinfo = pathinfo($v, PATHINFO_EXTENSION);
-                        in_array($extinfo, $this->ext) && !in_array($dir . DIRECTORY_SEPARATOR . $v, $res) ? $this->res[] =  $res[] = $dir . DIRECTORY_SEPARATOR . $v : '';
-                    }
-                } else {
-                   $this->res[] =  $res[] = $dir . DIRECTORY_SEPARATOR . $v;
-                }
-                continue;
-            }
-            if ($this->rec == true) {
-                foreach ($this->search($dir . DIRECTORY_SEPARATOR . $v) as $vx) {
-                   $this->res[] =  $res[] = $vx;
-                }
-            }
+        $this->dir[] = $dir;
+        if (is_string($exts))
+            $exts = explode(',', $exts);
+        $this->ext = $exts = array_map('strtolower', $exts);
+
+        if (empty($exts)) {
+            if (!$rec) return $this->res = self::glob_standard($dir);
+            return $this->res = self::glob_recursive($dir);
         }
-        return $res;
+        if ($rec) return $this->res = self::glob_recursive($dir, $exts);
+        return $this->res = self::glob_standard($dir, $exts);
+    }
+
+    static private function glob_standard($dirs, $exts = false)
+    {
+        if ($exts) {
+            $e = $dirs . "/*.{";
+            foreach ($exts as $k => $ext) {
+                $e .= strtolower($ext) . "," . strtoupper($ext);
+                if ($k != count($exts) - 1)
+                    $e .= ",";
+            }
+            $e .= "}";
+            return glob($e, GLOB_BRACE);
+        }
+        return glob($dirs . "/*");
+
+
+        return $files;
+    }
+
+    static private function glob_recursive($dirs, $exts = false)
+    {
+        $files = self::glob_standard($dirs, $exts);
+        foreach (glob($dirs . "/*", GLOB_ONLYDIR) as $dir)
+            $files = array_merge($files, self::glob_recursive($dir, $exts));
+        return $files;
     }
 }
-
-?>
